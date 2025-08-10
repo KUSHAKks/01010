@@ -272,7 +272,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   );
 
   return (
-    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-r border-gray-200/50 dark:border-gray-700/50 flex flex-col h-screen w-full transition-transform duration-300 relative sticky top-0">
+    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-r border-gray-200/50 dark:border-gray-700/50 flex flex-col h-screen w-full transition-transform duration-300 relative sticky top-0 mobile-optimized-scroll">
       {/* Mobile close button */}
       <button
         className="md:hidden absolute top-4 right-4 z-10 p-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:bg-white dark:hover:bg-gray-900 transition-all duration-200"
@@ -375,7 +375,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       )}
 
       {/* Content - Scrollable Middle Section */}
-      <div className="flex-1 overflow-y-auto custom-scrollbar pt-2 min-h-0">
+      <div className="flex-1 overflow-y-auto custom-scrollbar mobile-optimized-scroll scrollable-area pt-2 min-h-0">
         {currentMode === 'chat' ? (
           /* Chat History */
           Object.keys(groupedConversations).length === 0 ? (
@@ -391,7 +391,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               </p>
             </div>
           ) : (
-            <div className="p-4 space-y-6">
+            <div className="p-4 space-y-6 smooth-scroll">
               {Object.entries(groupedConversations).map(([dateGroup, convs]) => (
                 <div key={dateGroup}>
                   <div className="flex items-center space-x-2 mb-3">
@@ -454,7 +454,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           )
         ) : currentMode === 'image' ? (
           /* Image History */
-          <div className="p-4">
+          <div className="p-4 smooth-scroll">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <History size={16} className="text-emerald-500" />
@@ -484,7 +484,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 </p>
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-3 smooth-scroll">
                 {filteredImageHistory.map((image) => (
                   <div
                     key={image.id}
@@ -542,7 +542,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
         ) : (
           /* Video History */
-          <div className="p-4">
+          <div className="p-4 smooth-scroll">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <History size={16} className="text-purple-500" />
@@ -572,7 +572,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 </p>
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-3 smooth-scroll">
                 {filteredVideoHistory.map((video) => (
                   <div
                     key={video.id}

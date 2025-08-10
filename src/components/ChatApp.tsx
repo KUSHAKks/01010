@@ -127,7 +127,7 @@ function ChatApp() {
         return <ImageGenerator onBackToChat={() => setCurrentMode('chat')} />;
       default:
         return (
-          <div className="flex-1 flex flex-col min-w-0 relative">
+          <div className="flex-1 flex flex-col min-w-0 relative mobile-optimized-scroll">
             <div className="mb-8 md:mb-16"> {/* Less margin on mobile, more on desktop */}
               <Header 
                 isDarkMode={isDarkMode}
@@ -142,11 +142,11 @@ function ChatApp() {
               />
             </div>
             {/* Chat Messages Area - Takes remaining space with proper scroll and bottom padding for input */}
-            <div className="flex-1 overflow-y-auto pb-40 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
+            <div className="flex-1 overflow-y-auto pb-40 custom-scrollbar mobile-optimized-scroll scrollable-area">
               {messages.length === 0 ? (
                 <EmptyState />
               ) : (
-                <div className="px-4 py-6">
+                <div className="px-4 py-6 smooth-scroll">
                   <div className="max-w-4xl mx-auto space-y-6">
                     {messages.map((message, index) => (
                       <MessageBubble
@@ -174,7 +174,7 @@ function ChatApp() {
   };
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'dark' : ''}`}>
+    <div className={`min-h-screen transition-all duration-500 prevent-horizontal-scroll ${isDarkMode ? 'dark' : ''}`}>
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20"></div>
@@ -186,9 +186,9 @@ function ChatApp() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 h-screen flex flex-col md:flex-row overflow-hidden">
+      <div className="relative z-10 h-screen flex flex-col md:flex-row overflow-hidden mobile-optimized-scroll">
         {/* Sidebar */}
-        <div className={`fixed md:static top-0 left-0 h-screen z-40 transition-transform duration-300 md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} w-64 md:w-80`}> 
+        <div className={`fixed md:static top-0 left-0 h-screen z-40 transition-transform duration-300 md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} w-64 md:w-80 mobile-optimized-scroll`}> 
           <Sidebar 
             isDarkMode={isDarkMode}
             conversations={conversations}
@@ -211,7 +211,7 @@ function ChatApp() {
         )}
 
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col min-h-0 pt-16 md:pt-0 overflow-hidden">
+        <div className="flex-1 flex flex-col min-h-0 pt-16 md:pt-0 overflow-hidden mobile-optimized-scroll">
           {renderMainContent()}
         </div>
       </div>

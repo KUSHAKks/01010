@@ -214,11 +214,11 @@ export const VideoGenerator: React.FC<VideoGeneratorProps> = ({ onBackToChat }) 
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto p-6">
-        <div className="max-w-4xl mx-auto space-y-8">
+      <div className="flex-1 overflow-y-auto p-6 custom-scrollbar mobile-optimized-scroll scrollable-area">
+        <div className="max-w-4xl mx-auto space-y-8 smooth-scroll">
           {/* Generation Form */}
-          <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-xl">
-            <div className="space-y-6">
+          <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-xl mobile-optimized-scroll">
+            <div className="space-y-6 smooth-scroll">
               {/* Prompt Input */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
@@ -233,14 +233,14 @@ export const VideoGenerator: React.FC<VideoGeneratorProps> = ({ onBackToChat }) 
               </div>
 
               {/* Settings Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 smooth-scroll">
                 {/* Duration Selection */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                     <Clock size={16} className="inline mr-2" />
                     Duration
                   </label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-2 smooth-scroll">
                     {durations.map((dur) => (
                       <button
                         key={dur.value}
@@ -263,7 +263,7 @@ export const VideoGenerator: React.FC<VideoGeneratorProps> = ({ onBackToChat }) 
                     <Film size={16} className="inline mr-2" />
                     Style
                   </label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-2 smooth-scroll">
                     {videoStyles.map((styleOption) => (
                       <button
                         key={styleOption.id}

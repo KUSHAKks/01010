@@ -57,8 +57,8 @@ export const EmptyState: React.FC = () => {
   ];
 
   return (
-    <div className="flex items-start justify-center p-8">
-      <div className="text-center max-w-4xl w-full">
+    <div className="flex items-start justify-center p-8 mobile-optimized-scroll">
+      <div className="text-center max-w-4xl w-full smooth-scroll">
         {/* Hero Section */}
         <div className="mb-12">
           <div className="w-20 h-20 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl">
@@ -103,7 +103,7 @@ export const EmptyState: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             Powerful Features
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 smooth-scroll">
             {features.map((feature, index) => (
               <div key={index} className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <div className="flex items-start space-x-4">
@@ -163,7 +163,7 @@ export const EmptyState: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             Getting Started
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 smooth-scroll">
             <div className="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
               <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
                 🚀 First Steps
@@ -190,7 +190,7 @@ export const EmptyState: React.FC = () => {
         </div>
 
         {/* Extra bottom padding to ensure content is accessible above input */}
-        <div className="h-32"></div>
+        <div className="h-32 md:h-16"></div>
       </div>
     </div>
   );

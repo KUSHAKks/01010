@@ -111,8 +111,12 @@ export default {
       },
       scrollbar: {
         thin: {
-          width: '6px',
+          width: '8px',
         },
+      },
+      screens: {
+        'xs': '475px',
+        'touch': { 'raw': '(hover: none) and (pointer: coarse)' },
       },
     },
   },
@@ -131,6 +135,15 @@ export default {
         },
         '.scrollbar-track-transparent': {
           'scrollbar-track-color': 'transparent',
+        },
+        '.mobile-scroll': {
+          '-webkit-overflow-scrolling': 'touch',
+          'overflow-scrolling': 'touch',
+          'overscroll-behavior': 'contain',
+        },
+        '.smooth-scroll': {
+          'scroll-behavior': 'smooth',
+          '-webkit-overflow-scrolling': 'touch',
         },
       }
       addUtilities(newUtilities)

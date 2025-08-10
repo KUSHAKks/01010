@@ -318,10 +318,10 @@ export const ImageGenerator: React.FC<ImageGeneratorProps> = ({ onBackToChat }) 
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto p-6">
-        <div className="max-w-6xl mx-auto">
+      <div className="flex-1 overflow-y-auto p-6 custom-scrollbar mobile-optimized-scroll scrollable-area">
+        <div className="max-w-6xl mx-auto smooth-scroll">
           {!showHistory ? (
-            <div className="space-y-8">
+            <div className="space-y-8 smooth-scroll">
               {/* Generated Images - Display at Top */}
               {generatedImages.length > 0 && (
                 <div className="bg-gradient-to-br from-white/90 via-emerald-50/50 to-teal-50/50 dark:from-gray-800/90 dark:via-emerald-900/20 dark:to-teal-900/20 backdrop-blur-sm rounded-3xl p-8 border border-emerald-200/50 dark:border-emerald-700/50 shadow-2xl">
@@ -379,8 +379,8 @@ export const ImageGenerator: React.FC<ImageGeneratorProps> = ({ onBackToChat }) 
               )}
 
               {/* Generation Form */}
-              <div className="bg-gradient-to-br from-white/90 via-emerald-50/50 to-teal-50/50 dark:from-gray-800/90 dark:via-emerald-900/20 dark:to-teal-900/20 backdrop-blur-sm rounded-3xl p-8 border border-emerald-200/50 dark:border-emerald-700/50 shadow-2xl">
-                <div className="space-y-6">
+              <div className="bg-gradient-to-br from-white/90 via-emerald-50/50 to-teal-50/50 dark:from-gray-800/90 dark:via-emerald-900/20 dark:to-teal-900/20 backdrop-blur-sm rounded-3xl p-8 border border-emerald-200/50 dark:border-emerald-700/50 shadow-2xl mobile-optimized-scroll">
+                <div className="space-y-6 smooth-scroll">
                   {/* Prompt Input */}
                   <div>
                     <label className="block text-lg font-semibold text-emerald-800 dark:text-emerald-200 mb-4">
@@ -396,14 +396,14 @@ export const ImageGenerator: React.FC<ImageGeneratorProps> = ({ onBackToChat }) 
                   </div>
 
                   {/* Settings Grid */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 smooth-scroll">
                     {/* Style Selection */}
                     <div>
                       <label className="block text-lg font-semibold text-emerald-800 dark:text-emerald-200 mb-4">
                         <Palette size={20} className="inline mr-2" />
                         Art Style
                       </label>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 gap-3 smooth-scroll">
                         {imageStyles.map((styleOption) => (
                           <button
                             key={styleOption.id}
@@ -427,7 +427,7 @@ export const ImageGenerator: React.FC<ImageGeneratorProps> = ({ onBackToChat }) 
                         <Zap size={20} className="inline mr-2" />
                         Aspect Ratio
                       </label>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 gap-3 smooth-scroll">
                         {aspectRatios.map((ratio) => (
                           <button
                             key={ratio.value}
