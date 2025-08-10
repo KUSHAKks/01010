@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar styles for webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4B5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6B7280;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Custom focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800;
+}
+
+/* Glassmorphism effect */
+.glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation for floating elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse animation for voice indicator */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.33);
+  }
+  40%, 50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.33);
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* ChatGPT-Inspired Color Palette */
+:root {
+  --color-bg-primary: #343541;
+  --color-bg-secondary: #202123;
+  --color-accent: #10A37F;
+  --color-accent-hover: #14b58d;
+  --color-text-primary: #ECECF1;
+  --color-text-secondary: #C5C5D2;
+  --color-border: #3E3F4B;
+  --color-input-bg: #40414F;
+  --color-user-msg-bg: #444654;
+  --color-bot-msg-bg: #343541;
+  --radius: 8px;
+  --shadow: 0 2px 8px 0 rgba(20, 20, 20, 0.08);
+}
+
+body {
+  font-family: 'Inter', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* Utility classes for backgrounds, text, borders, and radius */
+.bg-primary { background: var(--color-bg-primary); }
+.bg-secondary { background: var(--color-bg-secondary); }
+.bg-accent { background: var(--color-accent); }
+.bg-input { background: var(--color-input-bg); }
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.border-main { border-color: var(--color-border); }
+.rounded-main { border-radius: var(--radius); }
+.shadow-main { box-shadow: var(--shadow); }
+
+/* Sticky positioning improvements */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.sticky-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Enhanced scrollbar for better UX */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(107, 114, 128, 0.7);
+}
+
+.dark .custom-scrollbar {
+  scrollbar-color: rgba(75, 85, 99, 0.5) transparent;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 85, 99, 0.5);
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(107, 114, 128, 0.7);
+}
+
+/* Ensure proper sticky behavior */
+.sidebar-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Improved sticky positioning */
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.sticky-bottom {
+  position: sticky;
+  bottom: 0;
+  z-index: 30;
+}
+
+/* Enhanced backdrop blur for sticky elements */
+.backdrop-blur-enhanced {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Button accent and hover */
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-text-primary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.btn-accent:hover {
+  background: var(--color-accent-hover);
+  box-shadow: 0 4px 16px 0 rgba(20, 20, 20, 0.12);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Chat bubble styles */
+.bubble-user {
+  background: var(--color-user-msg-bg);
+  color: var(--color-text-primary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: bubbleIn 0.25s cubic-bezier(.4,2,.6,1) both;
+}
+.bubble-bot {
+  background: var(--color-bot-msg-bg);
+  color: var(--color-text-primary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: bubbleIn 0.25s cubic-bezier(.4,2,.6,1) both;
+}
+
+@keyframes bubbleIn {
+  0% { opacity: 0; transform: translateY(20px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
